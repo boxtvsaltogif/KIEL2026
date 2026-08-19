@@ -20,15 +20,19 @@
   --ink:#161629;
   --gray:#5c5c72;
   --gray-light:#8a8aa0;
+  --copy-color:#303047;
+  --copy-font:"Trebuchet MS",Arial,Helvetica,sans-serif;
+  --copy-size:clamp(17px,1.2vw,18px);
   --bg:#ffffff;
   --bg-soft:#f6f6fb;
   --border:#e8e8f2;
   --radius:16px;
   --shadow:0 10px 30px -12px rgba(24,0,172,0.18);
   --maxw:1180px;
+  --header-height:100px;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;max-width:100%;overflow-x:clip}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-height) + 10px);max-width:100%;overflow-x:clip}
 #zoomWrap{position:relative}
 body{
   margin:0;
@@ -78,8 +82,8 @@ header{
   background:rgba(255,255,255,.92);backdrop-filter:saturate(180%) blur(10px);
   border-bottom:1px solid var(--border);
 }
-.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
-.nav-logo img{height:34px;width:auto}
+.nav{display:flex;align-items:center;justify-content:space-between;height:var(--header-height)}
+.nav-logo img{height:68px;width:auto;object-fit:contain}
 .nav-links{display:flex;align-items:center;gap:28px}
 .nav-links a{font-size:14.5px;font-weight:600;color:var(--ink);opacity:.8;transition:opacity .15s}
 .nav-links a:hover{opacity:1;color:var(--blue)}
@@ -320,6 +324,40 @@ footer{padding:40px 0;border-top:1px solid var(--border)}
 .footer-social .social-icon{width:19px;height:19px;flex-basis:19px}
 .footer-social a:hover,.footer-social a:focus-visible{text-decoration:underline;text-underline-offset:3px}
 
+/* ===== TEXTOS EXPLICATIVOS ===== */
+.hero-copy .lede,
+.section-head p,
+.evidencias-head p,
+.evidencia-card p,
+.tl-item p,
+.lei-card .lei-obs,
+.leis-fonte,
+.emenda-card .destino,
+.emenda-card .origem,
+.porque-card p,
+.acervo-note,
+.footer-note{
+  font-family:var(--copy-font);
+  font-size:var(--copy-size);
+  line-height:1.7;
+  color:var(--copy-color);
+  font-weight:500;
+  letter-spacing:.005em;
+}
+.emenda-card .destino{font-weight:700}
+.fact-strip .fact-emphasis,
+.pauta-card p,
+.contato p{
+  font-family:var(--copy-font);
+  font-size:var(--copy-size);
+  line-height:1.7;
+}
+.pauta-card p{color:#fff;opacity:1}
+.contato p{color:#f5f5ff}
+.contato .contato-vitoria{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+
 /* ===== REVEAL ===== */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
@@ -373,7 +411,7 @@ footer{padding:40px 0;border-top:1px solid var(--border)}
 
 /* Mobile nav drawer */
 .mobile-nav{
-  position:fixed;top:74px;right:0;bottom:0;width:min(100%,480px);background:#fff;z-index:99;
+  position:fixed;top:var(--header-height);right:0;bottom:0;width:min(100%,480px);background:#fff;z-index:99;
   transform:translateX(100%);visibility:hidden;transition:transform .25s ease,visibility 0s linear .25s;
   padding:24px;display:flex;flex-direction:column;gap:4px;overflow-y:auto;
 }
@@ -458,10 +496,7 @@ footer{padding:40px 0;border-top:1px solid var(--border)}
 <header>
   <div class="wrap nav">
     <a href="#inicio" class="nav-logo">
-      <picture>
-        <source srcset="img/logo.webp" type="image/webp">
-        <img src="img/logo.jpg" alt="Kiel Damasceno" width="150" height="83">
-      </picture>
+      <picture><img src="img/logo-topo-kiel.jpeg" alt="Kiel Damasceno" width="763" height="423"></picture>
     </a>
     <nav class="nav-links">
       <a href="#trajetoria">Trajetória</a>
@@ -501,7 +536,7 @@ footer{padding:40px 0;border-top:1px solid var(--border)}
     <div class="hero-copy reveal">
       <span class="eyebrow">Pré-candidato a deputado estadual — São Paulo</span>
       <h1>Kiel Damasceno: pai, empreendedor e <span class="accent">defensor do povo</span> de Salto.</h1>
-      <p class="lede">Mais de 20 anos de vida pública e privada, +14 leis aprovadas e um jeito de fazer política que não muda: cuidar das pessoas, das famílias e dos animais como se fossem os seus.</p>
+      <p class="lede">Mais de 20 anos de vida pública e privada, mais de 14 leis aprovadas e um jeito de fazer política que não muda: cuidar das pessoas, das famílias e dos animais como se fossem os seus.</p>
       <div class="hero-actions">
         <a href="#leis" class="btn btn-primary">Ver leis aprovadas ✓</a>
         <a href="#trajetoria" class="btn btn-outline">Conhecer a trajetória</a>
@@ -694,7 +729,7 @@ footer{padding:40px 0;border-top:1px solid var(--border)}
     <div class="section-head reveal">
       <span class="eyebrow proof-label">Quem é o Kiel</span>
       <h2>Uma trajetória construída na prática, não no discurso.</h2>
-      <p>Ezequiel de Souza Damasceno, o Kiel, é pai, empresário e uma liderança política que construiu a própria história com trabalho duro e compromisso com o serviço público — desde a feira livre até a Câmara Municipal de Salto.</p>
+      <p>Ezequiel de Souza Damasceno, o Kiel, é pai, empresário e líder político que construiu a própria história com trabalho duro e compromisso com o serviço público — desde a feira livre até a Câmara Municipal de Salto.</p>
     </div>
     <div class="trajetoria-grid">
       <div class="reveal">
@@ -777,7 +812,7 @@ footer{padding:40px 0;border-top:1px solid var(--border)}
       <div class="emenda-card reveal">
         <div class="valor">R$ 100.000,00</div>
         <div class="destino">Equipamentos para os postos de saúde de Salto</div>
-        <div class="origem">Emenda federal, em parceria com deputado em Brasília</div>
+        <div class="origem">Emenda federal, em parceria com um deputado em Brasília</div>
       </div>
       <div class="emenda-card reveal">
         <div class="valor">R$ 100.000,00</div>
@@ -786,7 +821,7 @@ footer{padding:40px 0;border-top:1px solid var(--border)}
       </div>
       <div class="emenda-card reveal">
         <div class="valor">R$ 60.000,00+</div>
-        <div class="destino">Notebook, computadores, tablets e mobiliário para a Clínica do Jd. das Nações</div>
+        <div class="destino">Notebook, computadores, tablets e mobiliário para a Clínica do Jardim das Nações</div>
         <div class="origem">Verba federal buscada em Brasília</div>
       </div>
     </div>
@@ -831,7 +866,7 @@ footer{padding:40px 0;border-top:1px solid var(--border)}
   <div class="wrap">
     <div class="section-head reveal">
       <span class="eyebrow proof-label">Por que Kiel merece seu voto</span>
-      <h2>Gente do povo, com resultado provado.</h2>
+      <h2>Gente do povo, com resultados comprovados.</h2>
     </div>
     <div class="porque-grid">
       <div class="porque-card reveal">
@@ -887,11 +922,11 @@ footer{padding:40px 0;border-top:1px solid var(--border)}
           <p class="contato-vitoria">Vamos conquistar juntos essa vitória?</p>
         </div>
         <div class="contato-cards">
-          <a class="contato-card" href="https://wa.me/5511940729254" target="_blank" rel="noopener noreferrer"><svg class="social-icon" aria-hidden="true"><use href="#icon-whatsapp"/></svg><span class="contact-copy"><b>WhatsApp oficial</b>+55 11 94072 9254</span></a>
-          <a class="contato-card" href="tel:+5511940729254"><svg class="social-icon" aria-hidden="true"><use href="#icon-phone"/></svg><span class="contact-copy"><b>Telefone</b>+55 11 94072 9254</span></a>
-          <a class="contato-card" href="https://www.instagram.com/kieldamasceno/" target="_blank" rel="noopener noreferrer"><svg class="social-icon" aria-hidden="true"><use href="#icon-instagram"/></svg><span class="contact-copy"><b>Instagram</b>@kieldamasceno</span></a>
-          <a class="contato-card" href="https://www.facebook.com/kieldamasceno.2026" target="_blank" rel="noopener noreferrer"><svg class="social-icon" aria-hidden="true"><use href="#icon-facebook"/></svg><span class="contact-copy"><b>Facebook</b>kieldamasceno.2026</span></a>
-          <a class="contato-card" href="https://www.tiktok.com/@ezequieldesouzadamasceno" target="_blank" rel="noopener noreferrer"><svg class="social-icon" aria-hidden="true"><use href="#icon-tiktok"/></svg><span class="contact-copy"><b>TikTok</b>@ezequieldesouzadamasceno</span></a>
+          <a class="contato-card" href="https://wa.me/5511940729254" target="_blank" rel="noopener noreferrer"><svg class="social-icon" aria-hidden="true"><use href="#icon-whatsapp"/></svg><span class="contact-copy"><b>WhatsApp oficial:</b> +55 11 94072 9254</span></a>
+          <a class="contato-card" href="tel:+5511940729254"><svg class="social-icon" aria-hidden="true"><use href="#icon-phone"/></svg><span class="contact-copy"><b>Telefone:</b> +55 11 94072 9254</span></a>
+          <a class="contato-card" href="https://www.instagram.com/kieldamasceno/" target="_blank" rel="noopener noreferrer"><svg class="social-icon" aria-hidden="true"><use href="#icon-instagram"/></svg><span class="contact-copy"><b>Instagram:</b> @kieldamasceno</span></a>
+          <a class="contato-card" href="https://www.facebook.com/kieldamasceno.2026" target="_blank" rel="noopener noreferrer"><svg class="social-icon" aria-hidden="true"><use href="#icon-facebook"/></svg><span class="contact-copy"><b>Facebook:</b> kieldamasceno.2026</span></a>
+          <a class="contato-card" href="https://www.tiktok.com/@ezequieldesouzadamasceno" target="_blank" rel="noopener noreferrer"><svg class="social-icon" aria-hidden="true"><use href="#icon-tiktok"/></svg><span class="contact-copy"><b>TikTok:</b> @ezequieldesouzadamasceno</span></a>
         </div>
       </div>
     </div>
@@ -905,7 +940,7 @@ footer{padding:40px 0;border-top:1px solid var(--border)}
       <img src="img/logo.jpg" alt="Kiel Damasceno" width="500" height="277" loading="lazy">
     </picture>
     <div class="footer-copy">
-      <p class="footer-note">Material de pré-candidatura de Ezequiel de Souza Damasceno "Kiel" — deputado estadual por São Paulo, partido Mobiliza. Conteúdo produzido pela equipe de campanha. © 2026.</p>
+      <p class="footer-note">Material de pré-candidatura de Ezequiel de Souza Damasceno "Kiel" — pré-candidato a deputado estadual por São Paulo, partido Mobiliza. Conteúdo produzido pela equipe de campanha. © 2026.</p>
       <nav class="footer-social" aria-label="Redes sociais e contato da campanha">
         <a href="https://www.instagram.com/kieldamasceno/" target="_blank" rel="noopener noreferrer"><svg class="social-icon" aria-hidden="true"><use href="#icon-instagram"/></svg>Instagram</a>
         <a href="https://www.facebook.com/kieldamasceno.2026" target="_blank" rel="noopener noreferrer"><svg class="social-icon" aria-hidden="true"><use href="#icon-facebook"/></svg>Facebook</a>
